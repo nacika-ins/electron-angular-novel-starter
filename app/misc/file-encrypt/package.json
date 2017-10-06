@@ -1,0 +1,16 @@
+{
+  "name": "file-encrypt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {},
+  "license": "MIT",
+  "dependencies": {
+    "file-encrypt": "^0.0.1",
+    "file-encryptor": "^0.1.1",
+    "glob": "^7.1.2",
+    "mkdirp": "^0.5.1"
+  }
+}

@@ -1,0 +1,14 @@
+
+<p>user is autohrized</p>
+<nav>
+  <a routerLink="./page1" routerLinkActive="active">Page1</a>
+  <a routerLink="./page2" routerLinkActive="active">Page2</a>
+  <a routerLink="./loop" routerLinkActive="active">Loop</a>
+  ---
+  <img [src]="bb | async">
+  {{bb | async}}
+  {{cc | async}}
+  ---
+  {{ xx | async | json }}
+</nav>
+<router-outlet></router-outlet>

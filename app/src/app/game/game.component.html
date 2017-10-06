@@ -1,0 +1,55 @@
+<div class="clickable-area" (click)="onClickClickableArea()" (contextmenu)="onContextMenu()" >
+  <div #backgroundOverlap class="background-overlap-area">
+    <img *ngIf="gameController.getOldBackGroundImage()" [src]="dataService.getItem(gameController.getOldBackGroundImage())">
+  </div>
+  <div #background class="background-area">
+    <img *ngIf="gameController.getBackGroundImage()" [src]="dataService.getItem(gameController.getBackGroundImage())">
+  </div>
+  <div #character class="character-area">
+    <div class="character" *ngFor="let character of gameController.getVisibleCharacters()" >
+      <img class="character-image" [src]="dataService.getItem(character.getImage())" [style.marginTop.px]="character.getOffsetY()" [style.marginLeft.px]="character.getOffsetX()" >
+    </div>
+  </div>
+  <div class="scene-cover-area"></div>
+  <div #select class="select-area">
+    <a (click)="onClickSelectItem(selectItem.getLabel())" class="select" *ngFor="let selectItem of gameController.getSelectItems()" >
+      <div class="select-inner">{{selectItem.getText()}}</div>
+    </a>
+  </div>
+  <div #messageBox class="message-box">
+    <img class="message-background" [src]="messageBoxImage" >
+    <div class="message-inner">{{messageContent}}</div>
+    <div class="message-talk-name">{{messageTalkName}}</div>
+  </div>
+  <div #alert class="alert-area" [hidden]="!alertMessage" >
+    <div *ngIf="alertMessage" class="alert">{{alertMessage}}</div>
+  </div>
+  <div #tools class="tools">
+    <a (click)="onClickLoadButton()"><img [src]="loadButtonImage"></a>
+    <a (click)="onClickSaveButton()"><img [src]="saveButtonImage"></a>
+    <a (click)="onClickLogButton()"><img [src]="logButtonImage"></a>
+  </div>
+  <div #saveDataLoadModal class="save-data-load-modal" [hidden]="!isShowSaveDataLoadModal" >
+    <div class="save-data-load-modal-inner">
+      <a class="save-data-item" (click)="onClickSaveItem(saveDataItem)" *ngFor="let saveDataItem of saveDataItems">
+        <div class="save-data-item-inner">
+          <div class="text">{{saveDataItem.getText()}}</div>
+        </div>
+      </a>
+      <div class="close-button" (click)="onClickSaveDataModalCloseButton()">×</div>
+    </div>
+  </div>
+  <div #saveDataLoadConfirmModalLayer class="save-data-load-confirm-modal-layer" [hidden]="!confirmSaveDataItem">
+    <div class="save-data-load-confirm-modal">
+      セーブデータを読み込みますか？
+      <div class="save-data-load-confirm-modal-button-inner">
+        <div class="save-data-load-confirm-modal-button" (click)="onClickConfirmSaveDataItem(true)">はい</div>
+        <div class="save-data-load-confirm-modal-button" (click)="onClickConfirmSaveDataItem(false)">いいえ</div>
+      </div>
+    </div>
+  </div>
+  <div #logElm class="log" [hidden]="!isShowLog">
+    <div class="log-inner"><pre>{{log}}</pre></div>
+    <div class="log-close-button" (click)="onClickCloseLog()">×</div>
+  </div>
+</div>

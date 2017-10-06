@@ -1,0 +1,12 @@
+{
+  "name": "electron",
+  "version": "0.2.0",
+  "main": "main.js",
+  "dependencies": {
+    "file-encryptor": "^0.1.1",
+    "fs.realpath": "^1.0.0",
+    "glob": "^7.1.2",
+    "glob-electron": "^0.1.0",
+    "mkdirp": "^0.5.1"
+  }
+}

@@ -1,0 +1,62 @@
+body {
+	font-family: sans-serif;
+	background: white;
+	color: black;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+* {
+	-webkit-user-select: none;
+	cursor: default;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	user-drag: none;
+}
+input[type="text"], textarea {
+	-webkit-user-select: auto;
+}
+
+a {
+	color: #fb0;
+	&:hover {text-decoration: none;}
+	&.active {text-decoration: none; color: #fd8;}
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.cover-window {
+	width: 1000px;
+	height: 1000px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: white;
+	opacity: 0;
+	display: none;
+	z-index: 100;
+	&.up {
+		@keyframes whiteUp {
+			from {opacity: 0}
+			to {opacity: 1}
+		}
+		display: block;
+		animation: whiteUp 2s ease alternate;
+		animation-fill-mode: forwards;
+
+	}
+	&.down {
+		@keyframes whiteDown {
+			from {opacity: 1}
+			to {opacity: 0}
+		}
+		display: block;
+		animation: whiteDown 2s ease alternate;
+		animation-fill-mode: forwards;
+
+	}
+}
